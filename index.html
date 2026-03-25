@@ -8,6 +8,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <script>
+    // Force scroll to top ASAP (in <head> for earliest execution)
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+    document.addEventListener('DOMContentLoaded', function() { window.scrollTo(0, 0); });
+    window.addEventListener('load', function() { window.scrollTo(0, 0); });
+  </script>
   <style>
     /* ===== RESET & BASE ===== */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -734,12 +743,6 @@
 
   <!-- ===== SCRIPTS ===== -->
   <script>
-    // Force scroll to top on page load
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'manual';
-    }
-    window.scrollTo(0, 0);
-
     // Fade-in on scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
