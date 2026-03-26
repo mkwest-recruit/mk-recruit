@@ -509,6 +509,11 @@
       justify-content: center;
       z-index: 1000;
       box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+    }
+    .sticky-cta.visible {
+      transform: translateY(0);
     }
     .sticky-cta a {
       flex: 1;
@@ -585,7 +590,7 @@
         <div class="point-card">
           <div class="point-number">30<small>万円〜</small></div>
           <div class="point-label">初任給30万最低保証</div>
-          <div class="point-desc">未経験でも安心の高水準な待遇。頑張りがしっかり評価される環境です。</div>
+          <div class="point-desc">未経験でも安心の高水準な待遇。<br>頑張りがしっかり評価される環境です。</div>
         </div>
         <div class="point-card">
           <div class="point-number">月10<small>日</small></div>
@@ -595,7 +600,7 @@
         <div class="point-card">
           <div class="point-number">3<small>都市</small></div>
           <div class="point-label">勤務地を選べる</div>
-          <div class="point-desc">大阪・神戸・福岡から希望の勤務地で働けます。<br><small style="color:#999;">※中途の場合は沖縄も含む</small></div>
+          <div class="point-desc">大阪・神戸・福岡から<br>希望の勤務地で働けます。<br><small style="color:#999;">※中途の場合は沖縄も含む</small></div>
         </div>
       </div>
     </div>
@@ -611,7 +616,7 @@
         単なる運転手ではなく、お客様に最高の移動体験を提供する"接客と運転のプロフェッショナル"です。
       </p>
       <div class="about-quote">
-        <p>「お客様第一」というエムケイの経営理念に基づき、<br>エムケイ流 "最上級のおもてなし" を提案します。</p>
+        <p>「お客様第一」というエムケイの経営理念に基づき、エムケイ流 "最上級のおもてなし" を<br>提案します。</p>
       </div>
       <p class="about-text">
         車両は全て最新の高級車をご用意。自動ブレーキや障害物感知センサーも搭載しているので、安心して運転に集中できます。
@@ -869,7 +874,7 @@
       <span class="section-label">Entry</span>
       <h2 class="section-title text-center">まずは気軽に<span>エントリー</span></h2>
       <p class="text-center" style="font-size:0.88rem; color:#666; margin-bottom:8px;">
-        少しでも興味を持っていただけたら、以下のフォームからお気軽にご応募ください。
+        少しでも興味を持っていただけたら、<br>以下のフォームからお気軽にご応募ください。
       </p>
       <div class="form-wrapper">
         <iframe
@@ -889,7 +894,7 @@
       <span class="section-label">Official LINE</span>
       <h2 class="section-title">LINE公式アカウントで<br><span>最新情報</span>をチェック</h2>
       <p class="line-cta-text">
-        説明会情報や採用に関する最新ニュースをお届けします。<br>
+        説明会情報や採用に関する<br>最新ニュースをお届けします。<br>
         お気軽にお問い合わせもいただけます。
       </p>
       <a href="https://lin.ee/NN0tcQl" class="line-btn" target="_blank" rel="noopener">
@@ -932,6 +937,22 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Show sticky CTA after scrolling past hero (second view)
+    const stickyCta = document.querySelector('.sticky-cta');
+    const pointsSection = document.querySelector('.points');
+    if (stickyCta && pointsSection) {
+      const stickyObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            stickyCta.classList.add('visible');
+          } else if (window.scrollY < pointsSection.offsetTop) {
+            stickyCta.classList.remove('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+      stickyObserver.observe(pointsSection);
+    }
 
     // Requirements tab switching
     document.querySelectorAll('.req-tab').forEach(tab => {
