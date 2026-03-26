@@ -372,6 +372,50 @@
       line-height: 1.7;
     }
 
+    /* ===== REQUIREMENTS TABS ===== */
+    .req-tabs {
+      display: flex;
+      gap: 0;
+      margin-top: 16px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #eee;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .req-tabs::-webkit-scrollbar { display: none; }
+    .req-tab {
+      flex-shrink: 0;
+      padding: 10px 18px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--gray);
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+    .req-tab.active {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
+    .req-tab:hover { color: var(--dark); }
+    .req-panel { display: none; }
+    .req-panel.active { display: block; }
+    .req-sub-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      padding-left: 12px;
+      border-left: 3px solid var(--gold);
+    }
+    .req-sub-title + .req-table { margin-top: 0; }
+    .req-section-gap { margin-top: 32px; }
+
     /* ===== APPLICATION ===== */
     .application {
       padding: 60px 20px;
@@ -524,7 +568,7 @@
         最上級のおもてなしを届ける仕事。
       </p>
       <div class="hero-badges">
-        <span class="hero-badge">初任給30万円</span>
+        <span class="hero-badge">初任給30万最低保証</span>
         <span class="hero-badge">月10日休み</span>
         <span class="hero-badge">大阪・神戸・福岡</span>
       </div>
@@ -539,8 +583,8 @@
       <h2 class="section-title">MKタクシー西日本で<br>働く<span>3つの魅力</span></h2>
       <div class="points-grid">
         <div class="point-card">
-          <div class="point-number">30<small>万円</small></div>
-          <div class="point-label">初任給</div>
+          <div class="point-number">30<small>万円〜</small></div>
+          <div class="point-label">初任給30万最低保証</div>
           <div class="point-desc">未経験でも安心の高水準な待遇。頑張りがしっかり評価される環境です。</div>
         </div>
         <div class="point-card">
@@ -551,7 +595,7 @@
         <div class="point-card">
           <div class="point-number">3<small>都市</small></div>
           <div class="point-label">勤務地を選べる</div>
-          <div class="point-desc">大阪・神戸・福岡から希望の勤務地で働けます。</div>
+          <div class="point-desc">大阪・神戸・福岡から希望の勤務地で働けます。<br><small style="color:#999;">※中途の場合は沖縄も含む</small></div>
         </div>
       </div>
     </div>
@@ -656,93 +700,166 @@
       <span class="section-label">Requirements</span>
       <h2 class="section-title">募集要項</h2>
 
-      <h3 style="font-size:1.1rem; font-weight:700; margin-bottom:12px; padding-left:12px; border-left:3px solid var(--gold);">グランドパイロット</h3>
-      <table class="req-table">
-        <tr>
-          <th>職種</th>
-          <td>グランドパイロット（タクシー・ハイヤードライバー）</td>
-        </tr>
-        <tr>
-          <th>応募資格</th>
-          <td>普通自動車免許（AT限定可）をお持ちの方<br>※二種免許は入社後に取得可能（費用会社負担）<br>※新卒・中途ともに歓迎</td>
-        </tr>
-        <tr>
-          <th>給与</th>
-          <td>月給300,000円（大卒・短大卒・専門卒）<br>月給285,000円（短大・専門卒）<br>※上記は2種免許取得後給与</td>
-        </tr>
-        <tr>
-          <th>賞与</th>
-          <td>年2回（7月、12月）</td>
-        </tr>
-        <tr>
-          <th>勤務時間</th>
-          <td>週平均40時間の変形労働時間制（実働1日10時間）</td>
-        </tr>
-        <tr>
-          <th>勤務地</th>
-          <td>大阪・神戸・福岡 ※希望の勤務地を選択可能（転勤無し）</td>
-        </tr>
-        <tr>
-          <th>休日</th>
-          <td>月10日（年間休日119日）</td>
-        </tr>
-        <tr>
-          <th>手当</th>
-          <td>通勤手当、家族手当、住宅手当、役職手当</td>
-        </tr>
-      </table>
+      <!-- タブ切替 -->
+      <div class="req-tabs">
+        <button class="req-tab active" data-tab="tab-gp">新卒 GP</button>
+        <button class="req-tab" data-tab="tab-office">新卒 事務職</button>
+        <button class="req-tab" data-tab="tab-mid">中途採用</button>
+      </div>
 
-      <h3 style="font-size:1.1rem; font-weight:700; margin-top:40px; margin-bottom:12px; padding-left:12px; border-left:3px solid var(--gold);">事務総合職</h3>
-      <table class="req-table">
-        <tr>
-          <th>職種</th>
-          <td>事務総合職</td>
-        </tr>
-        <tr>
-          <th>給与</th>
-          <td>月給210,000円（大卒）<br>月給195,000円（短大卒・専門卒）</td>
-        </tr>
-        <tr>
-          <th>賞与</th>
-          <td>年2回（7月、12月）</td>
-        </tr>
-        <tr>
-          <th>勤務時間</th>
-          <td>週平均40時間の変形労働時間制（実働1日9〜10時間）</td>
-        </tr>
-        <tr>
-          <th>勤務地</th>
-          <td>大阪・神戸・福岡のいずれかに配属（居住地から通勤可能なエリアに配属）</td>
-        </tr>
-        <tr>
-          <th>休日</th>
-          <td>月10日（年間休日119日）<br>※短大卒・専門卒は月11日（年間休日131日）</td>
-        </tr>
-        <tr>
-          <th>手当</th>
-          <td>通勤手当、家族手当、住宅手当、役職手当</td>
-        </tr>
-      </table>
+      <!-- ===== 新卒 GP ===== -->
+      <div class="req-panel active" id="tab-gp">
+        <h3 class="req-sub-title">グランドパイロット（トラベルコーディネーター）</h3>
+        <table class="req-table">
+          <tr>
+            <th>職種</th>
+            <td>グランドパイロット（トラベルコーディネーター）<br>※タクシー・ハイヤードライバー</td>
+          </tr>
+          <tr>
+            <th>応募資格</th>
+            <td>普通自動車免許（AT限定可）をお持ちの方<br>※二種免許は入社後に取得可能（費用会社負担）<br>※新卒・中途ともに歓迎</td>
+          </tr>
+          <tr>
+            <th>給与（最低保証）</th>
+            <td>月給300,000円（大卒・短大卒・専門卒）<br>月給285,000円（短大・専門卒）<br>※上記は2種免許取得後給与</td>
+          </tr>
+          <tr>
+            <th>賞与</th>
+            <td>年2回（7月、12月）</td>
+          </tr>
+          <tr>
+            <th>勤務時間</th>
+            <td>週平均40時間の変形労働時間制（実働1日10時間）</td>
+          </tr>
+          <tr>
+            <th>勤務地</th>
+            <td>大阪・神戸・福岡 ※希望の勤務地を選択可能（転勤無し）</td>
+          </tr>
+          <tr>
+            <th>休日</th>
+            <td>月10日（年間休日119日）</td>
+          </tr>
+          <tr>
+            <th>手当</th>
+            <td>通勤手当、家族手当、住宅手当、役職手当</td>
+          </tr>
+        </table>
+        <div class="req-section-gap"></div>
+        <h3 class="req-sub-title">福利厚生（共通）</h3>
+        <table class="req-table">
+          <tr><th>保険</th><td>社会保険完備</td></tr>
+          <tr><th>住居</th><td>社員寮あり（光熱費込み 月額20,000円）</td></tr>
+          <tr><th>交通費</th><td>別途支給（上限/月40,000円）、車・バイク通勤可（駐車場無料）</td></tr>
+          <tr><th>その他</th><td>制服貸与、SD社員表彰制度、誕生日プレゼント（商品券10,000円）、クリスマスプレゼント（商品券5,000円）、社員旅行（年1回 海外）</td></tr>
+        </table>
+      </div>
 
-      <h3 style="font-size:1.1rem; font-weight:700; margin-top:40px; margin-bottom:12px; padding-left:12px; border-left:3px solid var(--gold);">福利厚生（各職種共通）</h3>
-      <table class="req-table">
-        <tr>
-          <th>保険</th>
-          <td>社会保険完備</td>
-        </tr>
-        <tr>
-          <th>住居</th>
-          <td>社員寮あり（光熱費込み 月額20,000円）</td>
-        </tr>
-        <tr>
-          <th>交通費</th>
-          <td>別途支給（上限/月40,000円）、車・バイク通勤可能（駐車場無料）</td>
-        </tr>
-        <tr>
-          <th>その他</th>
-          <td>制服貸与、SD社員表彰制度、誕生日プレゼント（商品券10,000円）、クリスマスプレゼント（商品券5,000円）、社員旅行（年1回 海外）</td>
-        </tr>
-      </table>
+      <!-- ===== 新卒 事務職 ===== -->
+      <div class="req-panel" id="tab-office">
+        <h3 class="req-sub-title">事務総合職</h3>
+        <table class="req-table">
+          <tr>
+            <th>職種</th>
+            <td>事務総合職</td>
+          </tr>
+          <tr>
+            <th>給与</th>
+            <td>月給210,000円（大卒）<br>月給195,000円（短大卒・専門卒）</td>
+          </tr>
+          <tr>
+            <th>賞与</th>
+            <td>年2回（7月、12月）</td>
+          </tr>
+          <tr>
+            <th>勤務時間</th>
+            <td>週平均40時間の変形労働時間制（実働1日9〜10時間）</td>
+          </tr>
+          <tr>
+            <th>勤務地</th>
+            <td>大阪・神戸・福岡のいずれかに配属（居住地から通勤可能なエリアに配属）</td>
+          </tr>
+          <tr>
+            <th>休日</th>
+            <td>月10日（年間休日119日）<br>※短大卒・専門卒は月11日（年間休日131日）</td>
+          </tr>
+          <tr>
+            <th>手当</th>
+            <td>通勤手当、家族手当、住宅手当、役職手当</td>
+          </tr>
+        </table>
+        <div class="req-section-gap"></div>
+        <h3 class="req-sub-title">福利厚生（共通）</h3>
+        <table class="req-table">
+          <tr><th>保険</th><td>社会保険完備</td></tr>
+          <tr><th>住居</th><td>社員寮あり（光熱費込み 月額20,000円）</td></tr>
+          <tr><th>交通費</th><td>別途支給（上限/月40,000円）、車・バイク通勤可（駐車場無料）</td></tr>
+          <tr><th>その他</th><td>制服貸与、SD社員表彰制度、誕生日プレゼント（商品券10,000円）、クリスマスプレゼント（商品券5,000円）、社員旅行（年1回 海外）</td></tr>
+        </table>
+      </div>
+
+      <!-- ===== 中途採用 ===== -->
+      <div class="req-panel" id="tab-mid">
+        <h3 class="req-sub-title">グランドパイロット職</h3>
+        <table class="req-table">
+          <tr>
+            <th>雇用形態</th>
+            <td>正社員</td>
+          </tr>
+          <tr>
+            <th>応募条件</th>
+            <td>学歴不問<br>普通免許取得後1年以上の方（AT限定可）</td>
+          </tr>
+          <tr>
+            <th>給与</th>
+            <td>【ハイヤー】<br>昼勤：固定給32万円+業績給+賞与<br>夜勤：固定給37万円+業績給+賞与<br>【中型乗務】<br>昼勤：固定給27万円+業績給+賞与<br>夜勤：固定給32万円+業績給+賞与<br>※入社後3ヵ月間は月給40万円保障</td>
+          </tr>
+          <tr>
+            <th>勤務時間</th>
+            <td>6:30〜18:30 / 8:00〜20:00 / 18:30〜翌6:30 / 20:00〜翌8:00 など<br>※時短勤務制度あり</td>
+          </tr>
+          <tr>
+            <th>勤務地</th>
+            <td>豊中市 / 大阪市西成区 / 泉佐野市 ※希望考慮</td>
+          </tr>
+          <tr>
+            <th>休日</th>
+            <td>月9〜10日公休（シフト制）<br>慶弔休暇、有給休暇、特別休暇等</td>
+          </tr>
+        </table>
+        <div class="req-section-gap"></div>
+        <h3 class="req-sub-title">トラベルコーディネーター</h3>
+        <table class="req-table">
+          <tr>
+            <th>雇用形態</th>
+            <td>正社員</td>
+          </tr>
+          <tr>
+            <th>応募条件</th>
+            <td>学歴不問<br>普通免許取得後1年以上の方（AT限定可）<br>年齢30歳以下の方</td>
+          </tr>
+          <tr>
+            <th>給与</th>
+            <td>固定給30万円〜（短大卒・専門卒は28.5万円〜）+賞与（年2回）+交通費</td>
+          </tr>
+          <tr>
+            <th>勤務時間</th>
+            <td>7:30〜19:30 / 8:00〜20:00</td>
+          </tr>
+          <tr>
+            <th>休日</th>
+            <td>月10日公休（シフト制）<br>慶弔休暇、有給休暇、特別休暇等</td>
+          </tr>
+        </table>
+        <div class="req-section-gap"></div>
+        <h3 class="req-sub-title">福利厚生（共通）</h3>
+        <table class="req-table">
+          <tr><th>保険</th><td>社会保険完備</td></tr>
+          <tr><th>住居</th><td>寮完備・退職金制度</td></tr>
+          <tr><th>交通費</th><td>支給（条件あり）、マイカー通勤可（駐車料金無料）</td></tr>
+          <tr><th>その他</th><td>制服貸与、SD社員表彰制度、誕生日・クリスマスプレゼント、海外留学制度、社員旅行、サークル活動、MKグループ割引</td></tr>
+        </table>
+      </div>
+
     </div>
   </section>
 
@@ -756,7 +873,7 @@
       </p>
       <div class="form-wrapper">
         <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLSdfmDfxP7emGQvwh5z9gM_s9DIWXrknMfMn7_DHo-8P6t_LSw/viewform?embedded=true"
+          src="https://docs.google.com/forms/d/e/1FAIpQLSfvMCIU-vRxK1cXQ8lhQnJ1ImWEIpcz7sb74PyE9aK2MGMPKg/viewform?embedded=true"
           frameborder="0"
           marginheight="0"
           marginwidth="0"
@@ -815,6 +932,16 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Requirements tab switching
+    document.querySelectorAll('.req-tab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.req-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.req-panel').forEach(p => p.classList.remove('active'));
+        this.classList.add('active');
+        document.getElementById(this.dataset.tab).classList.add('active');
+      });
+    });
   </script>
 
 </body>
