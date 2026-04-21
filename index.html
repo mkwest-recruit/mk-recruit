@@ -1,970 +1,741 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MKタクシー西日本｜採用情報</title>
-  <meta name="description" content="エムケイ西日本グループ グランドパイロット採用。初任給30万円・月10日休み・大阪/神戸/福岡で勤務可能。">
-  <link rel="preload" as="video" href="https://video.wixstatic.com/video/56749a_9de33c4057e54d9cb8a477e6ff612233/1080p/mp4/file.mp4" type="video/mp4">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-  <script>
-    // Force scroll to top ASAP (in <head> for earliest execution)
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'manual';
-    }
-    window.scrollTo(0, 0);
-    document.addEventListener('DOMContentLoaded', function() { window.scrollTo(0, 0); });
-    window.addEventListener('load', function() { window.scrollTo(0, 0); });
-  </script>
-  <style>
-    /* ===== RESET & BASE ===== */
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; font-size: 16px; }
-    body {
-      font-family: 'Noto Sans JP', sans-serif;
-      color: #1a1a1a;
-      background: #fff;
-      line-height: 1.8;
-      -webkit-font-smoothing: antialiased;
-    }
-    img { max-width: 100%; height: auto; display: block; }
-    a { text-decoration: none; color: inherit; }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="format-detection" content="telephone=no,email=no,address=no" />
+<title>乗務員募集会社説明会お申し込み（SNS経由）</title>
+<!--
+  =====================================================================
+   MK 採用エントリーフォーム  (SNS 経由 / スマホ最適)
+   送信先 : Google フォーム (裏側で自動転記 → スプレッドシート同期)
+  =====================================================================
+   ▼ 初回セットアップ時に書き換える箇所（README.md も合わせて参照）
+     1) GOOGLE_FORM_ID : GoogleフォームのID
+     2) ENTRY.*        : 各設問の entry.xxxxxx ID
+     3) ロゴ画像       : <img class="logo-img" ...> の src を差し替え
+  =====================================================================
+-->
+<style>
+  :root{
+    /* ▼ ブランドカラー（MK調 : 黒×ゴールド＋クリーム） */
+    --gold-1 : #d8c896;   /* 上部バンド（淡ゴールド） */
+    --gold-2 : #c4a960;   /* ゴールド濃 */
+    --ink    : #1a1a1a;   /* 黒 */
+    --bg     : #f5f3ee;   /* ページ背景（クリーム） */
+    --card   : #ffffff;   /* カード背景 */
+    --text   : #2b2b2b;
+    --text-sub:#6b6b6b;
+    --line   : #e5e1d6;   /* 区切り線 */
+    --mint   : #9fd9c3;   /* 送信ボタン */
+    --mint-d : #7fc5ab;
+    --danger : #c0392b;
+    --focus  : #d8c89644;
+  }
 
-    /* ===== COLOR VARIABLES ===== */
-    :root {
-      --black: #0a0a0a;
-      --dark: #1a1a1a;
-      --gold: #c8a84e;
-      --gold-light: #dfc06a;
-      --white: #ffffff;
-      --gray-light: #f5f5f5;
-      --gray: #888;
-      --green-line: #06C755;
-    }
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{ margin:0; padding:0; }
+  html{ background:var(--bg); }
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:
+      "Hiragino Kaku Gothic ProN","Hiragino Sans",
+      "Noto Sans JP","Yu Gothic UI","YuGothic","Meiryo",
+      system-ui,-apple-system,sans-serif;
+    font-size:15px;
+    line-height:1.8;
+    -webkit-font-smoothing:antialiased;
+    font-feature-settings:"palt";
+  }
 
-    /* ===== UTILITY ===== */
-    .container { max-width: 720px; margin: 0 auto; padding: 0 20px; }
-    .section-label {
-      display: inline-block;
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-bottom: 8px;
-      font-weight: 500;
-    }
-    .section-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      line-height: 1.5;
-      margin-bottom: 16px;
-    }
-    .section-title span { color: var(--gold); }
-    .text-center { text-align: center; }
+  .page{
+    max-width:640px;
+    margin:0 auto;
+    padding:16px 14px 60px;
+  }
 
-    /* ===== FADE-IN ANIMATION ===== */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  /* ========== カード全体 ========== */
+  .card{
+    background:var(--card);
+    border-radius:22px 22px 18px 18px;
+    overflow:hidden;
+    box-shadow:0 6px 28px rgba(60,50,20,.08);
+  }
 
-    /* ===== HEADER / HERO ===== */
-    .hero {
-      position: relative;
-      background: var(--black);
-      color: var(--white);
-      padding: 60px 20px 50px;
-      text-align: center;
-      overflow: hidden;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .hero-video-wrap {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      overflow: hidden;
-    }
-    .hero-video-wrap video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .hero-video-wrap::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        to bottom,
-        rgba(10, 10, 10, 0.55) 0%,
-        rgba(10, 10, 10, 0.40) 40%,
-        rgba(10, 10, 10, 0.65) 100%
-      );
-      z-index: 1;
-    }
-    .hero-content { position: relative; z-index: 2; }
-    .hero-logo {
-      font-size: 0.85rem;
-      letter-spacing: 0.3em;
-      color: var(--gold);
-      margin-bottom: 6px;
-      font-weight: 500;
-    }
-    .hero-company {
-      font-size: 1rem;
-      font-weight: 300;
-      letter-spacing: 0.15em;
-      margin-bottom: 30px;
-      color: rgba(255,255,255,0.7);
-    }
-    .hero-catch {
-      font-size: 1.6rem;
-      font-weight: 900;
-      line-height: 1.6;
-      margin-bottom: 12px;
-      letter-spacing: 0.02em;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.6);
-    }
-    .hero-catch .highlight {
-      color: var(--gold);
-      display: inline;
-    }
-    .hero-sub {
-      font-size: 0.9rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.85);
-      line-height: 1.7;
-      margin-bottom: 30px;
-      text-shadow: 0 1px 8px rgba(0,0,0,0.5);
-    }
-    .hero-badges {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 32px;
-    }
-    .hero-badge {
-      background: rgba(200, 168, 78, 0.12);
-      border: 1px solid rgba(200, 168, 78, 0.35);
-      color: var(--gold-light);
-      padding: 8px 18px;
-      border-radius: 50px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-    }
-    .hero-cta {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--black);
-      padding: 14px 40px;
-      border-radius: 50px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 20px rgba(200, 168, 78, 0.3);
-    }
-    .hero-cta:hover {
-      background: var(--gold-light);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 28px rgba(200, 168, 78, 0.45);
-    }
+  /* ========== 上部ゴールドバンド ========== */
+  .hero{
+    background:linear-gradient(180deg,var(--gold-1) 0%, #e3d5a6 100%);
+    padding:28px 20px 34px;
+    text-align:center;
+    border-radius:22px 22px 28px 28px / 22px 22px 40px 40px;
+  }
+  .logo-wrap{
+    display:inline-block;
+    width:92px; height:92px;
+    border-radius:14px;
+    background:
+      radial-gradient(circle at 30% 30%, #3a2f14 0%, #000 70%);
+    box-shadow:0 2px 8px rgba(0,0,0,.25);
+    display:flex; align-items:center; justify-content:center;
+    margin:0 auto 14px;
+  }
+  /* ▼ 画像ロゴを使う場合はこの <img> の src を差し替え、.logo-text は削除 */
+  .logo-img{ max-width:70%; max-height:70%; display:none; }
+  .logo-text{
+    font-family:"Times New Roman", serif;
+    font-weight:700;
+    font-size:32px;
+    letter-spacing:.05em;
+    color:var(--gold-2);
+    text-shadow:0 1px 0 rgba(255,255,255,.1);
+    line-height:1;
+  }
+  .logo-text small{
+    display:block;
+    font-size:10px;
+    letter-spacing:.3em;
+    margin-top:4px;
+    color:#e9d9a3;
+  }
+  .hero-title{
+    margin:6px 0 0;
+    font-size:17px;
+    font-weight:500;
+    color:#fff;
+    letter-spacing:.04em;
+    line-height:1.5;
+    text-shadow:0 1px 2px rgba(80,60,20,.15);
+  }
 
-    /* ===== POINTS / FEATURES ===== */
-    .points {
-      padding: 60px 20px;
-      background: var(--gray-light);
-    }
-    .points-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-      margin-top: 24px;
-    }
-    .point-card {
-      background: var(--white);
-      border-radius: 16px;
-      padding: 30px 24px;
-      text-align: center;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.04);
-      transition: transform 0.3s ease;
-    }
-    .point-card:hover { transform: translateY(-4px); }
-    .point-number {
-      font-size: 2.2rem;
-      font-weight: 900;
-      color: var(--gold);
-      line-height: 1.2;
-    }
-    .point-number small {
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
-    .point-label {
-      font-size: 0.85rem;
-      color: var(--gray);
-      margin-top: 6px;
-      font-weight: 400;
-    }
-    .point-desc {
-      font-size: 0.82rem;
-      color: #666;
-      margin-top: 10px;
-      line-height: 1.7;
-    }
+  /* ========== リード文 ========== */
+  .lead{
+    padding:22px 22px 4px;
+    text-align:center;
+  }
+  .lead p{
+    margin:0 0 10px;
+    font-size:14.5px;
+    color:var(--text);
+    line-height:1.85;
+  }
+  .lead .thanks-msg{
+    text-align:left;
+    font-size:13.5px;
+    color:var(--text-sub);
+    background:#faf7ee;
+    border-radius:10px;
+    padding:14px 16px;
+    margin:14px 0 0;
+    line-height:1.8;
+  }
+  .lead .push{
+    font-size:15px;
+    font-weight:500;
+    color:var(--text);
+    margin-top:18px;
+  }
 
-    /* ===== ABOUT ===== */
-    .about {
-      padding: 60px 20px;
-      background: var(--black);
-      color: var(--white);
-    }
-    .about .section-title { color: var(--white); }
-    .about-text {
-      font-size: 0.9rem;
-      line-height: 2;
-      color: rgba(255,255,255,0.78);
-      margin-bottom: 20px;
-    }
-    .about-quote {
-      border-left: 3px solid var(--gold);
-      padding: 16px 20px;
-      background: rgba(200, 168, 78, 0.06);
-      border-radius: 0 8px 8px 0;
-      margin: 24px 0;
-    }
-    .about-quote p {
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--gold-light);
-      line-height: 1.8;
-    }
+  /* ========== 担当者情報 ========== */
+  .contact{
+    padding:20px 22px 6px;
+    font-size:13.5px;
+    color:var(--text);
+    line-height:2;
+  }
+  .contact .row{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+  }
+  .contact .row .k{
+    color:var(--text-sub);
+    min-width:7em;
+  }
+  .contact a{
+    color:var(--text);
+    text-decoration:none;
+    border-bottom:1px dotted var(--text-sub);
+  }
 
-    /* ===== TRAINING ===== */
-    .training {
-      padding: 60px 20px;
-      background: var(--white);
-    }
-    .training-list {
-      margin-top: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .training-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      padding: 20px;
-      background: var(--gray-light);
-      border-radius: 12px;
-    }
-    .training-icon {
-      flex-shrink: 0;
-      width: 48px;
-      height: 48px;
-      background: var(--black);
-      color: var(--gold);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-    }
-    .training-info h4 {
-      font-size: 0.95rem;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-    .training-info p {
-      font-size: 0.82rem;
-      color: #666;
-      line-height: 1.7;
-    }
+  /* ========== 区切り線（点線） ========== */
+  .divider{
+    border:none;
+    border-top:1px dashed var(--line);
+    margin:18px 22px;
+  }
 
-    /* ===== VOICE ===== */
-    .voice {
-      padding: 60px 20px;
-      background: var(--gray-light);
-    }
-    .voice-cards {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      margin-top: 24px;
-    }
-    .voice-card {
-      background: var(--white);
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.04);
-    }
-    .voice-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 14px;
-    }
-    .voice-avatar {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: var(--black);
-      color: var(--gold);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-    .voice-meta { font-size: 0.82rem; }
-    .voice-meta strong { display: block; font-size: 0.9rem; }
-    .voice-meta span { color: var(--gray); }
-    .voice-body {
-      font-size: 0.85rem;
-      color: #444;
-      line-height: 1.85;
-    }
+  /* ========== 設問 ========== */
+  .q{
+    padding:14px 22px 18px;
+  }
+  .q + .q{
+    border-top:1px dashed var(--line);
+  }
+  .q-label{
+    display:block;
+    font-size:14px;
+    font-weight:500;
+    margin:0 0 12px;
+    color:var(--text);
+    line-height:1.6;
+  }
+  .q-label .req{
+    color:var(--danger);
+    font-weight:700;
+    margin-right:4px;
+    font-size:14px;
+    vertical-align:1px;
+  }
+  .q-label .opt{
+    color:var(--text-sub);
+    font-size:11px;
+    margin-left:6px;
+    font-weight:400;
+  }
+  .hint{
+    font-size:12px;
+    color:var(--text-sub);
+    margin:-6px 0 10px;
+    line-height:1.6;
+  }
 
-    /* ===== REQUIREMENTS ===== */
-    .requirements {
-      padding: 60px 20px;
-      background: var(--white);
-    }
-    .req-table {
-      margin-top: 24px;
-      width: 100%;
-      border-collapse: collapse;
-    }
-    .req-table tr { border-bottom: 1px solid #eee; }
-    .req-table th {
-      text-align: left;
-      padding: 14px 12px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--dark);
-      width: 100px;
-      vertical-align: top;
-      background: var(--gray-light);
-      border-radius: 4px 0 0 4px;
-    }
-    .req-table td {
-      padding: 14px 12px;
-      font-size: 0.85rem;
-      color: #444;
-      line-height: 1.7;
-    }
+  /* ========== テキスト/メール/電話/数値/textarea ========== */
+  input[type=text],
+  input[type=email],
+  input[type=tel],
+  input[type=number],
+  textarea{
+    width:100%;
+    padding:12px 14px;
+    font-size:16px;            /* iOSズーム防止に16px以上 */
+    font-family:inherit;
+    color:var(--text);
+    background:#fff;
+    border:1px solid #d9d4c7;
+    border-radius:8px;
+    outline:none;
+    transition:border-color .15s, box-shadow .15s, background .15s;
+    -webkit-appearance:none;
+    appearance:none;
+  }
+  textarea{
+    resize:vertical;
+    min-height:120px;
+    line-height:1.7;
+  }
+  input:focus, textarea:focus{
+    border-color:var(--gold-2);
+    background:#fffdf6;
+    box-shadow:0 0 0 3px var(--focus);
+  }
 
-    /* ===== REQUIREMENTS TABS ===== */
-    .req-tabs {
-      display: flex;
-      gap: 0;
-      margin-top: 16px;
-      margin-bottom: 20px;
-      border-bottom: 2px solid #eee;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-    .req-tabs::-webkit-scrollbar { display: none; }
-    .req-tab {
-      flex-shrink: 0;
-      padding: 10px 18px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--gray);
-      cursor: pointer;
-      border-bottom: 3px solid transparent;
-      transition: all 0.3s ease;
-      white-space: nowrap;
-      background: none;
-      border-top: none;
-      border-left: none;
-      border-right: none;
-    }
-    .req-tab.active {
-      color: var(--gold);
-      border-bottom-color: var(--gold);
-    }
-    .req-tab:hover { color: var(--dark); }
-    .req-panel { display: none; }
-    .req-panel.active { display: block; }
-    .req-sub-title {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      padding-left: 12px;
-      border-left: 3px solid var(--gold);
-    }
-    .req-sub-title + .req-table { margin-top: 0; }
-    .req-section-gap { margin-top: 32px; }
+  /* ========== ラジオ（MK風：丸のシンプルラジオ・縦並び） ========== */
+  .radios{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+  }
+  .radio{
+    position:relative;
+    display:block;
+    padding:12px 10px 12px 44px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:15px;
+    color:var(--text);
+    line-height:1.5;
+    transition:background .15s;
+    min-height:44px;           /* タップ領域 */
+  }
+  .radio:hover{ background:#faf7ee; }
+  .radio input{
+    position:absolute;
+    opacity:0;
+    pointer-events:none;
+  }
+  .radio .mark{
+    position:absolute;
+    left:12px; top:50%;
+    transform:translateY(-50%);
+    width:22px; height:22px;
+    border-radius:50%;
+    background:#fff;
+    border:1.5px solid #bdb6a3;
+    transition:border-color .15s, box-shadow .15s;
+  }
+  .radio .mark::after{
+    content:"";
+    position:absolute;
+    inset:4px;
+    border-radius:50%;
+    background:var(--gold-2);
+    transform:scale(0);
+    transition:transform .15s;
+  }
+  .radio input:checked ~ .mark{
+    border-color:var(--gold-2);
+    box-shadow:0 0 0 3px var(--focus);
+  }
+  .radio input:checked ~ .mark::after{ transform:scale(1); }
+  .radio input:checked ~ .text{ color:var(--ink); font-weight:500; }
+  .radio input:disabled ~ .mark{
+    background:#efece3; border-color:#d5d0c0;
+  }
+  .radio input:disabled ~ .text{
+    color:#b7b2a3;
+  }
+  .radio input:disabled ~ .text .note{
+    color:#b7b2a3;
+  }
+  .radio .note{
+    font-size:11.5px;
+    color:var(--text-sub);
+    margin-left:8px;
+  }
 
-    /* ===== APPLICATION ===== */
-    .application {
-      padding: 60px 20px;
-      background: var(--gray-light);
-    }
-    .form-wrapper {
-      margin-top: 24px;
-      background: var(--white);
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.04);
-      overflow: hidden;
-    }
-    .form-wrapper iframe {
-      width: 100%;
-      min-height: 600px;
-      border: none;
-    }
+  /* ========== エラー ========== */
+  .err{
+    color:var(--danger);
+    font-size:12.5px;
+    margin-top:8px;
+    display:none;
+    line-height:1.5;
+  }
+  .q.has-error .err{ display:block; }
+  .q.has-error input,
+  .q.has-error textarea{
+    border-color:var(--danger);
+    background:#fdf5f3;
+  }
+  .q.has-error .radio .mark{ border-color:var(--danger); }
 
-    /* ===== LINE CTA ===== */
-    .line-cta {
-      padding: 60px 20px;
-      background: var(--black);
-      color: var(--white);
-      text-align: center;
-    }
-    .line-cta .section-title { color: var(--white); margin-bottom: 12px; }
-    .line-cta-text {
-      font-size: 0.88rem;
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 28px;
-      line-height: 1.8;
-    }
-    .line-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--green-line);
-      color: #fff;
-      padding: 16px 36px;
-      border-radius: 50px;
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 20px rgba(6, 199, 85, 0.3);
-    }
-    .line-btn:hover {
-      background: #05b34d;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 28px rgba(6, 199, 85, 0.45);
-    }
-    .line-btn svg { width: 24px; height: 24px; fill: #fff; }
+  /* ========== 送信 ========== */
+  .actions{
+    padding:10px 22px 28px;
+    text-align:center;
+  }
+  .btn{
+    appearance:none;
+    border:none;
+    cursor:pointer;
+    background:var(--mint);
+    color:#fff;
+    font-size:15.5px;
+    font-weight:600;
+    font-family:inherit;
+    padding:14px 42px;
+    border-radius:10px;
+    letter-spacing:.08em;
+    transition:background .15s, transform .05s, box-shadow .15s;
+    box-shadow:0 3px 10px rgba(127,197,171,.35);
+    min-width:180px;
+    min-height:48px;
+  }
+  .btn:hover{ background:var(--mint-d); }
+  .btn:active{ transform:translateY(1px); }
+  .btn[disabled]{ opacity:.6; cursor:not-allowed; }
+  .btn .arrow{ display:inline-block; margin-left:4px; transition:transform .15s; }
+  .btn:hover .arrow{ transform:translateX(3px); }
 
-    /* ===== FOOTER ===== */
-    footer {
-      padding: 40px 20px;
-      background: #0d0d0d;
-      color: rgba(255,255,255,0.5);
-      text-align: center;
-      font-size: 0.78rem;
-    }
-    footer .footer-company {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.8);
-      font-weight: 500;
-      margin-bottom: 8px;
-    }
-    footer .footer-contact {
-      margin-bottom: 16px;
-      line-height: 1.8;
-    }
-    footer .footer-contact a {
-      color: var(--gold);
-      text-decoration: underline;
-    }
-    footer .copyright { font-size: 0.72rem; }
+  .footnote{
+    text-align:center;
+    color:var(--text-sub);
+    font-size:11.5px;
+    margin:18px 0 0;
+    padding:0 22px;
+    line-height:1.7;
+  }
 
-    /* ===== STICKY CTA ===== */
-    .sticky-cta {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(10,10,10,0.95);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      padding: 12px 20px;
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      z-index: 1000;
-      box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
-      transform: translateY(100%);
-      transition: transform 0.4s ease;
-    }
-    .sticky-cta.visible {
-      transform: translateY(0);
-    }
-    .sticky-cta a {
-      flex: 1;
-      max-width: 180px;
-      text-align: center;
-      padding: 12px 16px;
-      border-radius: 50px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      transition: all 0.3s ease;
-    }
-    .sticky-cta .btn-apply {
-      background: var(--gold);
-      color: var(--black);
-    }
-    .sticky-cta .btn-line {
-      background: var(--green-line);
-      color: #fff;
-    }
+  /* ========== 完了画面 ========== */
+  .thanks{
+    display:none;
+    text-align:center;
+    padding:48px 26px;
+  }
+  .thanks .mark-ok{
+    width:64px; height:64px; border-radius:50%;
+    background:var(--mint); color:#fff;
+    font-size:30px; line-height:64px;
+    margin:0 auto 18px;
+    box-shadow:0 4px 14px rgba(127,197,171,.35);
+  }
+  .thanks h2{
+    margin:0 0 10px;
+    font-size:18px;
+    font-weight:600;
+    color:var(--ink);
+    letter-spacing:.04em;
+  }
+  .thanks p{
+    color:var(--text-sub);
+    margin:4px 0;
+    font-size:13.5px;
+    line-height:1.8;
+  }
 
-    /* ===== SPACER FOR STICKY ===== */
-    .bottom-spacer { height: 70px; }
-
-    /* ===== RESPONSIVE ===== */
-    @media (min-width: 520px) {
-      .points-grid { grid-template-columns: repeat(3, 1fr); }
-      .hero-catch { font-size: 2rem; }
-      .section-title { font-size: 1.7rem; }
-    }
-    @media (min-width: 768px) {
-      .hero { padding: 80px 20px 70px; }
-      .hero-catch { font-size: 2.2rem; }
-      .voice-cards { flex-direction: row; }
-      .voice-card { flex: 1; }
-    }
-  </style>
+  /* ========== レスポンシブ（タブレット以上） ========== */
+  @media (min-width:560px){
+    .page{ padding:28px 20px 80px; }
+    .hero{ padding:34px 24px 40px; }
+    .hero-title{ font-size:19px; }
+    .lead{ padding:26px 28px 6px; }
+    .contact{ padding:22px 28px 6px; }
+    .q{ padding:16px 28px 20px; }
+    .divider{ margin:20px 28px; }
+    .actions{ padding:16px 28px 36px; }
+  }
+</style>
 </head>
 <body>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero">
-    <!-- 背景動画：URLを差し替えるだけで別の動画に変更可能 -->
-    <div class="hero-video-wrap">
-      <video autoplay muted loop playsinline preload="auto" fetchpriority="high"
-        src="https://video.wixstatic.com/video/56749a_9de33c4057e54d9cb8a477e6ff612233/1080p/mp4/file.mp4#t=3">
-      </video>
-    </div>
-    <div class="hero-content">
-      <div class="hero-logo">MK TAXI</div>
-      <div class="hero-company">エムケイ西日本グループ 採用情報</div>
-      <h1 class="hero-catch">
-        接客と運転の<br>プロフェッショナル<br>
-        <span class="highlight">グランドパイロット</span>を<br>目指しませんか？
-      </h1>
-      <p class="hero-sub">
-        「お客様第一」の理念のもと、<br>
-        最上級のおもてなしを届ける仕事。
-      </p>
-      <div class="hero-badges">
-        <span class="hero-badge">初任給30万最低保証</span>
-        <span class="hero-badge">月10日休み</span>
-        <span class="hero-badge">大阪・神戸・福岡</span>
-      </div>
-      <a href="#application" class="hero-cta">エントリーはこちら</a>
-    </div>
-  </section>
+<div class="page">
+  <div class="card">
 
-  <!-- ===== 3つの魅力 ===== -->
-  <section class="points">
-    <div class="container text-center fade-in">
-      <span class="section-label">Why MK Taxi?</span>
-      <h2 class="section-title">MKタクシー西日本で<br>働く<span>3つの魅力</span></h2>
-      <div class="points-grid">
-        <div class="point-card">
-          <div class="point-number">30<small>万円〜</small></div>
-          <div class="point-label">初任給30万最低保証</div>
-          <div class="point-desc">未経験でも安心の高水準な待遇。<br>頑張りがしっかり評価される環境です。</div>
-        </div>
-        <div class="point-card">
-          <div class="point-number">月10<small>日</small></div>
-          <div class="point-label">お休み</div>
-          <div class="point-desc">プライベートも充実。ワークライフバランスを大切にした働き方が可能です。</div>
-        </div>
-        <div class="point-card">
-          <div class="point-number">3<small>都市</small></div>
-          <div class="point-label">勤務地を選べる</div>
-          <div class="point-desc">大阪・神戸・福岡から<br>希望の勤務地で働けます。<br><small style="color:#999;">※中途の場合は沖縄も含む</small></div>
+    <!-- ========== ヒーロー ========== -->
+    <header class="hero">
+      <div class="logo-wrap">
+        <!-- ▼ MKロゴ画像がある場合はこの <img> の src を差し替えて class "logo-img" の display を block に -->
+        <img class="logo-img" src="" alt="MK" />
+        <div class="logo-text">
+          MK<br>
+          <small>WEST</small>
         </div>
       </div>
-    </div>
-  </section>
+      <h1 class="hero-title">乗務員募集会社説明会お申し込み（SNS経由）</h1>
+    </header>
 
-  <!-- ===== グランドパイロットとは ===== -->
-  <section class="about">
-    <div class="container fade-in">
-      <span class="section-label">About Grand Pilot</span>
-      <h2 class="section-title">「<span>グランドパイロット</span>」とは</h2>
-      <p class="about-text">
-        当社では、タクシー・ハイヤードライバーを「グランドパイロット」と位置づけています。
-        単なる運転手ではなく、お客様に最高の移動体験を提供する"接客と運転のプロフェッショナル"です。
-      </p>
-      <div class="about-quote">
-        <p>「お客様第一」というエムケイの経営理念に基づき、エムケイ流 "最上級のおもてなし" を提案します。</p>
-      </div>
-      <p class="about-text">
-        車両は全て最新の高級車をご用意。自動ブレーキや障害物感知センサーも搭載しているので、安心して運転に集中できます。
-      </p>
-    </div>
-  </section>
+    <!-- ========== 入力フォーム本体 ========== -->
+    <form id="entryForm" novalidate>
 
-  <!-- ===== 研修制度 ===== -->
-  <section class="training">
-    <div class="container fade-in">
-      <span class="section-label">Training Program</span>
-      <h2 class="section-title">充実した<span>研修制度</span></h2>
-      <p style="font-size:0.88rem; color:#666; margin-bottom:8px;">
-        未経験の方でも安心。段階的にスキルアップできる研修プログラムを用意しています。
-      </p>
-      <div class="training-list">
-        <div class="training-item">
-          <div class="training-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#c8a84e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M5 17a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1l2-3h8l2 3h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2M5 17l-1 2h2m12-2l1 2h-2"/><circle cx="7.5" cy="14" r="1.5"/><circle cx="16.5" cy="14" r="1.5"/><path d="M9 10h6"/></svg></div>
-          <div class="training-info">
-            <h4>ドライバー基礎研修</h4>
-            <p>安全運転技術やルート知識など、基礎からしっかり学べます。二種免許の取得もサポートします。</p>
-          </div>
+      <!-- リード文 -->
+      <section class="lead">
+        <p class="thanks-msg">
+          会社説明会へのエントリー誠にありがとうございます。<br>
+          質問に関して内容を入力（チェック）いただき、最後に電話もしくはメールにて日程をご連絡いたします。
+        </p>
+        <p class="push">下記フォームご記入のうえ、「送信」を押してください。</p>
+      </section>
+
+      <!-- 担当者情報 -->
+      <section class="contact">
+        <div class="row"><span class="k">人事採用担当：</span><span>宇井 悟志</span></div>
+        <div class="row"><span class="k">電話番号：</span><span><a href="tel:0783065655">078-306-5655</a>（平日9:00〜18:00）</span></div>
+        <div class="row"><span class="k">メールアドレス：</span><span><a href="mailto:mkwest@mk-group.co.jp">mkwest@mk-group.co.jp</a></span></div>
+      </section>
+
+      <hr class="divider">
+
+      <!-- Q1 応募区分 -->
+      <div class="q" data-q="1">
+        <label class="q-label"><span class="req">*</span>Q1. 応募区分</label>
+        <div class="radios" role="radiogroup" aria-label="応募区分">
+          <label class="radio">
+            <input type="radio" name="category" value="新卒" required>
+            <span class="mark"></span>
+            <span class="text">新卒</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="category" value="中途" required>
+            <span class="mark"></span>
+            <span class="text">中途</span>
+          </label>
         </div>
-        <div class="training-item">
-          <div class="training-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#c8a84e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M4 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="10" cy="7" r="4"/></svg></div>
-          <div class="training-info">
-            <h4>ハイヤー・接客研修</h4>
-            <p>VIPのお客様にも対応できるハイレベルな接客スキルを身につけます。</p>
-          </div>
+        <div class="err">応募区分を選択してください。</div>
+      </div>
+
+      <!-- Q2 氏名 -->
+      <div class="q" data-q="2">
+        <label class="q-label" for="name"><span class="req">*</span>Q2. 氏名</label>
+        <input type="text" id="name" name="name" placeholder="例）山田 太郎" autocomplete="name" required>
+        <div class="err">氏名をご入力ください。</div>
+      </div>
+
+      <!-- Q3 年齢 -->
+      <div class="q" data-q="3">
+        <label class="q-label" for="age"><span class="req">*</span>Q3. 年齢</label>
+        <input type="number" id="age" name="age" min="15" max="99" step="1" placeholder="例）24" inputmode="numeric" required>
+        <div class="err">年齢を半角数字でご入力ください。</div>
+      </div>
+
+      <!-- Q4 性別 -->
+      <div class="q" data-q="4">
+        <label class="q-label"><span class="req">*</span>Q4. 性別</label>
+        <div class="radios" role="radiogroup" aria-label="性別">
+          <label class="radio">
+            <input type="radio" name="gender" value="男性" required>
+            <span class="mark"></span>
+            <span class="text">男性</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="gender" value="女性" required>
+            <span class="mark"></span>
+            <span class="text">女性</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="gender" value="回答しない" required>
+            <span class="mark"></span>
+            <span class="text">回答しない</span>
+          </label>
         </div>
-        <div class="training-item">
-          <div class="training-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#c8a84e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <div class="training-info">
-            <h4>観光研修</h4>
-            <p>観光地の知識やガイドスキルを習得。観光タクシーとしての付加価値を高めます。</p>
-          </div>
+        <div class="err">性別を選択してください。</div>
+      </div>
+
+      <!-- Q5 希望勤務地 -->
+      <div class="q" data-q="5">
+        <label class="q-label"><span class="req">*</span>Q5. 希望勤務地</label>
+        <p class="hint">※ 沖縄は「中途」のみ選択可能です。</p>
+        <div class="radios" role="radiogroup" aria-label="希望勤務地">
+          <label class="radio">
+            <input type="radio" name="location" value="大阪" required>
+            <span class="mark"></span>
+            <span class="text">大阪</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="location" value="兵庫" required>
+            <span class="mark"></span>
+            <span class="text">兵庫</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="location" value="福岡" required>
+            <span class="mark"></span>
+            <span class="text">福岡</span>
+          </label>
+          <label class="radio" id="radio-okinawa">
+            <input type="radio" name="location" value="沖縄" required disabled>
+            <span class="mark"></span>
+            <span class="text">沖縄<span class="note" id="okinawa-note">（中途のみ）</span></span>
+          </label>
         </div>
-        <div class="training-item">
-          <div class="training-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#c8a84e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-          <div class="training-info">
-            <h4>英会話研修</h4>
-            <p>インバウンドのお客様への対応力を強化。グローバルに活躍できるドライバーを目指します。</p>
-          </div>
+        <div class="err">希望勤務地を選択してください。</div>
+      </div>
+
+      <!-- Q6 希望職種 -->
+      <div class="q" data-q="6">
+        <label class="q-label"><span class="req">*</span>Q6. 希望職種</label>
+        <div class="radios" role="radiogroup" aria-label="希望職種">
+          <label class="radio">
+            <input type="radio" name="job" value="ドライバー" required>
+            <span class="mark"></span>
+            <span class="text">ドライバー</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="job" value="事務職" required>
+            <span class="mark"></span>
+            <span class="text">事務職</span>
+          </label>
         </div>
+        <div class="err">希望職種を選択してください。</div>
       </div>
-    </div>
-  </section>
 
-  <!-- ===== 先輩の声 ===== -->
-  <section class="voice">
-    <div class="container fade-in">
-      <span class="section-label">Interview</span>
-      <h2 class="section-title">先輩グランドパイロットの<span>声</span></h2>
-      <div class="voice-cards">
-        <div class="voice-card">
-          <div class="voice-header">
-            <div class="voice-avatar">T.K</div>
-            <div class="voice-meta">
-              <strong>T.K さん</strong>
-              <span>入社3年目 ／ 大阪営業所</span>
-            </div>
-          </div>
-          <div class="voice-body">
-            前職はアパレル販売でしたが、接客スキルを活かせる環境に惹かれて入社しました。研修がしっかりしているので未経験でも安心して始められました。お客様から「ありがとう」と言っていただける瞬間が何より嬉しいです。
-          </div>
+      <!-- Q7 メール -->
+      <div class="q" data-q="7">
+        <label class="q-label" for="email"><span class="req">*</span>Q7. メールアドレス</label>
+        <input type="email" id="email" name="email" placeholder="例）taro@example.com" autocomplete="email" inputmode="email" required>
+        <div class="err">有効なメールアドレスをご入力ください。</div>
+      </div>
+
+      <!-- Q8 電話番号 -->
+      <div class="q" data-q="8">
+        <label class="q-label" for="tel"><span class="req">*</span>Q8. 電話番号</label>
+        <input type="tel" id="tel" name="tel" placeholder="例）090-1234-5678" autocomplete="tel" inputmode="tel" required>
+        <div class="err">電話番号をご入力ください（半角ハイフンあり/なし どちらでも可）。</div>
+      </div>
+
+      <!-- Q9 どのSNS媒体をご覧になりましたか -->
+      <div class="q" data-q="9">
+        <label class="q-label"><span class="req">*</span>Q9. どのSNS媒体をご覧になられましたか？</label>
+        <div class="radios" role="radiogroup" aria-label="SNS媒体">
+          <label class="radio">
+            <input type="radio" name="sns" value="TikTok" required>
+            <span class="mark"></span>
+            <span class="text">TikTok</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="sns" value="Instagram" required>
+            <span class="mark"></span>
+            <span class="text">Instagram</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="sns" value="どちらも見た" required>
+            <span class="mark"></span>
+            <span class="text">どちらも見た</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="sns" value="どちらも見ていない" required>
+            <span class="mark"></span>
+            <span class="text">どちらも見ていない</span>
+          </label>
         </div>
-        <div class="voice-card">
-          <div class="voice-header">
-            <div class="voice-avatar">S.M</div>
-            <div class="voice-meta">
-              <strong>S.M さん</strong>
-              <span>入社1年目 ／ 福岡営業所</span>
-            </div>
-          </div>
-          <div class="voice-body">
-            新卒で入社しました。月10日休みがあるのでプライベートも充実しています。観光研修で地元の知識も深まり、仕事がどんどん楽しくなっています。高級車に毎日乗れるのも魅力です！
-          </div>
-        </div>
+        <div class="err">SNS媒体を選択してください。</div>
       </div>
+
+      <!-- Q10 ご質問・ご不明点（任意） -->
+      <div class="q" data-q="10">
+        <label class="q-label" for="note">Q10. ご質問・ご不明点<span class="opt">（任意）</span></label>
+        <textarea id="note" name="note" placeholder="ご質問やご不明点がございましたらご記入ください。"></textarea>
+      </div>
+
+      <div class="actions">
+        <button type="submit" id="submitBtn" class="btn">送信する<span class="arrow">→</span></button>
+        <p class="footnote">送信いただいた内容は、採用担当よりメールまたはお電話にてご連絡いたします。</p>
+      </div>
+    </form>
+
+    <!-- ========== 送信完了 ========== -->
+    <div id="thanks" class="thanks">
+      <div class="mark-ok">✓</div>
+      <h2>送信が完了しました</h2>
+      <p>ご応募いただき、誠にありがとうございます。</p>
+      <p>担当者より、お電話またはメールにて日程をご連絡いたします。</p>
     </div>
-  </section>
 
-  <!-- ===== 募集要項 ===== -->
-  <section class="requirements">
-    <div class="container fade-in">
-      <span class="section-label">Requirements</span>
-      <h2 class="section-title">募集要項</h2>
-
-      <!-- タブ切替 -->
-      <div class="req-tabs">
-        <button class="req-tab active" data-tab="tab-gp">新卒 GP</button>
-        <button class="req-tab" data-tab="tab-office">新卒 事務職</button>
-        <button class="req-tab" data-tab="tab-mid">中途採用</button>
-      </div>
-
-      <!-- ===== 新卒 GP ===== -->
-      <div class="req-panel active" id="tab-gp">
-        <h3 class="req-sub-title">グランドパイロット<br>（トラベルコーディネーター）</h3>
-        <table class="req-table">
-          <tr>
-            <th>職種</th>
-            <td>グランドパイロット<br>（トラベルコーディネーター）<br>※タクシー・ハイヤードライバー</td>
-          </tr>
-          <tr>
-            <th>応募資格</th>
-            <td>普通自動車免許（AT限定可）をお持ちの方<br>※二種免許は入社後に取得可能（費用会社負担）<br>※新卒・中途ともに歓迎</td>
-          </tr>
-          <tr>
-            <th>給与（最低保証）</th>
-            <td>月給300,000円（大卒・短大卒・専門卒）<br>月給285,000円（短大・専門卒）<br>※上記は2種免許取得後給与</td>
-          </tr>
-          <tr>
-            <th>賞与</th>
-            <td>年2回（7月、12月）</td>
-          </tr>
-          <tr>
-            <th>勤務時間</th>
-            <td>週平均40時間の変形労働時間制（実働1日10時間）</td>
-          </tr>
-          <tr>
-            <th>勤務地</th>
-            <td>大阪・神戸・福岡 ※希望の勤務地を選択可能（転勤無し）</td>
-          </tr>
-          <tr>
-            <th>休日</th>
-            <td>月10日（年間休日119日）</td>
-          </tr>
-          <tr>
-            <th>手当</th>
-            <td>通勤手当、家族手当、住宅手当、役職手当</td>
-          </tr>
-        </table>
-        <div class="req-section-gap"></div>
-        <h3 class="req-sub-title">福利厚生（共通）</h3>
-        <table class="req-table">
-          <tr><th>保険</th><td>社会保険完備</td></tr>
-          <tr><th>住居</th><td>社員寮あり（光熱費込み 月額20,000円）</td></tr>
-          <tr><th>交通費</th><td>別途支給（上限/月40,000円）、車・バイク通勤可（駐車場無料）</td></tr>
-          <tr><th>その他</th><td>制服貸与、SD社員表彰制度、誕生日プレゼント（商品券10,000円）、クリスマスプレゼント（商品券5,000円）、社員旅行（年1回 海外）</td></tr>
-        </table>
-      </div>
-
-      <!-- ===== 新卒 事務職 ===== -->
-      <div class="req-panel" id="tab-office">
-        <h3 class="req-sub-title">事務総合職</h3>
-        <table class="req-table">
-          <tr>
-            <th>職種</th>
-            <td>事務総合職</td>
-          </tr>
-          <tr>
-            <th>給与</th>
-            <td>月給210,000円（大卒）<br>月給195,000円（短大卒・専門卒）</td>
-          </tr>
-          <tr>
-            <th>賞与</th>
-            <td>年2回（7月、12月）</td>
-          </tr>
-          <tr>
-            <th>勤務時間</th>
-            <td>週平均40時間の変形労働時間制（実働1日9〜10時間）</td>
-          </tr>
-          <tr>
-            <th>勤務地</th>
-            <td>大阪・神戸・福岡のいずれかに配属（居住地から通勤可能なエリアに配属）</td>
-          </tr>
-          <tr>
-            <th>休日</th>
-            <td>月10日（年間休日119日）<br>※短大卒・専門卒は月11日（年間休日131日）</td>
-          </tr>
-          <tr>
-            <th>手当</th>
-            <td>通勤手当、家族手当、住宅手当、役職手当</td>
-          </tr>
-        </table>
-        <div class="req-section-gap"></div>
-        <h3 class="req-sub-title">福利厚生（共通）</h3>
-        <table class="req-table">
-          <tr><th>保険</th><td>社会保険完備</td></tr>
-          <tr><th>住居</th><td>社員寮あり（光熱費込み 月額20,000円）</td></tr>
-          <tr><th>交通費</th><td>別途支給（上限/月40,000円）、車・バイク通勤可（駐車場無料）</td></tr>
-          <tr><th>その他</th><td>制服貸与、SD社員表彰制度、誕生日プレゼント（商品券10,000円）、クリスマスプレゼント（商品券5,000円）、社員旅行（年1回 海外）</td></tr>
-        </table>
-      </div>
-
-      <!-- ===== 中途採用 ===== -->
-      <div class="req-panel" id="tab-mid">
-        <h3 class="req-sub-title">グランドパイロット職</h3>
-        <table class="req-table">
-          <tr>
-            <th>雇用形態</th>
-            <td>正社員</td>
-          </tr>
-          <tr>
-            <th>応募条件</th>
-            <td>学歴不問<br>普通免許取得後1年以上の方（AT限定可）</td>
-          </tr>
-          <tr>
-            <th>給与</th>
-            <td>【ハイヤー】<br>昼勤：固定給32万円+業績給+賞与<br>夜勤：固定給37万円+業績給+賞与<br>【中型乗務】<br>昼勤：固定給27万円+業績給+賞与<br>夜勤：固定給32万円+業績給+賞与<br>※入社後3ヵ月間は月給40万円保障</td>
-          </tr>
-          <tr>
-            <th>勤務時間</th>
-            <td>6:30〜18:30 / 8:00〜20:00 / 18:30〜翌6:30 / 20:00〜翌8:00 など<br>※時短勤務制度あり</td>
-          </tr>
-          <tr>
-            <th>勤務地</th>
-            <td>豊中市 / 大阪市西成区 / 泉佐野市 ※希望考慮</td>
-          </tr>
-          <tr>
-            <th>休日</th>
-            <td>月9〜10日公休（シフト制）<br>慶弔休暇、有給休暇、特別休暇等</td>
-          </tr>
-        </table>
-        <div class="req-section-gap"></div>
-        <h3 class="req-sub-title">トラベルコーディネーター</h3>
-        <table class="req-table">
-          <tr>
-            <th>雇用形態</th>
-            <td>正社員</td>
-          </tr>
-          <tr>
-            <th>応募条件</th>
-            <td>学歴不問<br>普通免許取得後1年以上の方（AT限定可）<br>年齢30歳以下の方</td>
-          </tr>
-          <tr>
-            <th>給与</th>
-            <td>固定給30万円〜（短大卒・専門卒は28.5万円〜）+賞与（年2回）+交通費</td>
-          </tr>
-          <tr>
-            <th>勤務時間</th>
-            <td>7:30〜19:30 / 8:00〜20:00</td>
-          </tr>
-          <tr>
-            <th>休日</th>
-            <td>月10日公休（シフト制）<br>慶弔休暇、有給休暇、特別休暇等</td>
-          </tr>
-        </table>
-        <div class="req-section-gap"></div>
-        <h3 class="req-sub-title">福利厚生（共通）</h3>
-        <table class="req-table">
-          <tr><th>保険</th><td>社会保険完備</td></tr>
-          <tr><th>住居</th><td>寮完備・退職金制度</td></tr>
-          <tr><th>交通費</th><td>支給（条件あり）、マイカー通勤可（駐車料金無料）</td></tr>
-          <tr><th>その他</th><td>制服貸与、SD社員表彰制度、誕生日・クリスマスプレゼント、海外留学制度、社員旅行、サークル活動、MKグループ割引</td></tr>
-        </table>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ===== 応募フォーム ===== -->
-  <section class="application" id="application">
-    <div class="container fade-in">
-      <span class="section-label">Entry</span>
-      <h2 class="section-title text-center">まずは気軽に<span>エントリー</span></h2>
-      <p class="text-center" style="font-size:0.88rem; color:#666; margin-bottom:8px;">
-        少しでも興味を持っていただけたら、<br>以下のフォームからお気軽にご応募ください。
-      </p>
-      <div class="form-wrapper">
-        <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLSfvMCIU-vRxK1cXQ8lhQnJ1ImWEIpcz7sb74PyE9aK2MGMPKg/viewform?embedded=true"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0"
-          loading="lazy"
-        >読み込んでいます…</iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== LINE CTA ===== -->
-  <section class="line-cta" id="line">
-    <div class="container fade-in">
-      <span class="section-label">Official LINE</span>
-      <h2 class="section-title">LINE公式アカウントで<br><span>最新情報</span>をチェック</h2>
-      <p class="line-cta-text">
-        説明会情報や採用に関する<br>最新ニュースをお届けします。<br>
-        お気軽にお問い合わせもいただけます。
-      </p>
-      <a href="https://lin.ee/NN0tcQl" class="line-btn" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-        友だち追加
-      </a>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <div class="container">
-      <div class="footer-company">エムケイ西日本グループ 人事部</div>
-      <div class="footer-contact">
-        TEL: 0120-40-5644<br>
-        MAIL: <a href="mailto:mkwest@mk-group.co.jp">mkwest@mk-group.co.jp</a>
-      </div>
-      <div class="copyright">&copy; 2026 MK Group. All rights reserved.</div>
-    </div>
-  </footer>
-
-  <!-- ===== STICKY CTA ===== -->
-  <div class="sticky-cta">
-    <a href="#application" class="btn-apply">エントリーする</a>
-    <a href="https://lin.ee/NN0tcQl" class="btn-line" target="_blank" rel="noopener">LINE追加</a>
   </div>
+</div>
 
-  <!-- Bottom Spacer -->
-  <div class="bottom-spacer"></div>
+<script>
+/* =======================================================================
+   Google フォーム連携設定
+   ---------------------------------------------------------------------
+   ▼ ご自身の Google フォームの情報をここに入れてください
+   （README.md の手順を参照）
+   ====================================================================== */
+const GOOGLE_FORM_ID = "1FAIpQLSfvMCIU-vRxK1cXQ8lhQnJ1ImWEIpcz7sb74PyE9aK2MGMPKg";
+const ENTRY = {
+  category : "entry.904338255",    // Q1 新卒/中途
+  name     : "entry.1272299662",   // Q2 氏名
+  age      : "entry.808769961",    // Q3 年齢
+  gender   : "entry.1158015510",   // Q4 性別
+  location : "entry.851908355",    // Q5 希望勤務地
+  job      : "entry.264960165",    // Q6 希望職種
+  email    : "entry.2016660678",   // Q7 メール
+  tel      : "entry.795649900",    // Q8 電話
+  sns      : "entry.2042086336",   // Q9 SNS媒体
+  note     : "entry.1435687814"    // Q10 ご質問
+};
+/* ===================================================================== */
 
-  <!-- ===== SCRIPTS ===== -->
-  <script>
-    // Fade-in on scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
+(function(){
+  const form      = document.getElementById("entryForm");
+  const thanks    = document.getElementById("thanks");
+  const submitBtn = document.getElementById("submitBtn");
 
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    // Show sticky CTA after scrolling past hero (second view)
-    const stickyCta = document.querySelector('.sticky-cta');
-    const pointsSection = document.querySelector('.points');
-    if (stickyCta && pointsSection) {
-      const stickyObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            stickyCta.classList.add('visible');
-          } else if (window.scrollY < pointsSection.offsetTop) {
-            stickyCta.classList.remove('visible');
-          }
-        });
-      }, { threshold: 0.1 });
-      stickyObserver.observe(pointsSection);
-    }
-
-    // Requirements tab switching
-    document.querySelectorAll('.req-tab').forEach(tab => {
-      tab.addEventListener('click', function() {
-        document.querySelectorAll('.req-tab').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.req-panel').forEach(p => p.classList.remove('active'));
-        this.classList.add('active');
-        document.getElementById(this.dataset.tab).classList.add('active');
-      });
+  // ---- 応募区分によって「沖縄」を有効/無効化 ----
+  const okinawaInput = document.querySelector('input[name="location"][value="沖縄"]');
+  const okinawaNote  = document.getElementById("okinawa-note");
+  document.querySelectorAll('input[name="category"]').forEach(r=>{
+    r.addEventListener("change", ()=>{
+      const isMid = (document.querySelector('input[name="category"]:checked')?.value === "中途");
+      okinawaInput.disabled = !isMid;
+      if(!isMid && okinawaInput.checked){ okinawaInput.checked = false; }
+      okinawaNote.textContent = isMid ? "（選択できます）" : "（中途のみ）";
     });
-  </script>
+  });
 
+  // ---- ヘルパー ----
+  const q = n => form.querySelector('.q[data-q="'+n+'"]');
+  const markError = (qEl, msg) => {
+    qEl.classList.add("has-error");
+    if(msg) qEl.querySelector(".err").textContent = msg;
+  };
+  const clearError = qEl => qEl && qEl.classList.remove("has-error");
+
+  function getFormData(){
+    const fd = new FormData(form);
+    return {
+      category : fd.get("category") || "",
+      name     : (fd.get("name")||"").trim(),
+      age      : fd.get("age") || "",
+      gender   : fd.get("gender") || "",
+      location : fd.get("location") || "",
+      job      : fd.get("job") || "",
+      email    : (fd.get("email")||"").trim(),
+      tel      : (fd.get("tel")  ||"").trim(),
+      sns      : fd.get("sns") || "",
+      note     : (fd.get("note") ||"").trim()
+    };
+  }
+
+  function validate(){
+    let ok = true;
+    form.querySelectorAll(".q").forEach(clearError);
+    const d = getFormData();
+
+    if(!d.category){ markError(q(1)); ok=false; }
+    if(!d.name){     markError(q(2)); ok=false; }
+    if(!d.age || Number(d.age) < 15 || Number(d.age) > 99){ markError(q(3)); ok=false; }
+    if(!d.gender){   markError(q(4)); ok=false; }
+    if(!d.location){ markError(q(5)); ok=false; }
+    if(d.location === "沖縄" && d.category !== "中途"){
+      markError(q(5), "沖縄は「中途」の方のみ選択可能です。"); ok=false;
+    }
+    if(!d.job){ markError(q(6)); ok=false; }
+
+    const reMail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!reMail.test(d.email)){ markError(q(7)); ok=false; }
+
+    const reTel = /^[0-9\-\+\(\)\s]{9,15}$/;
+    if(!reTel.test(d.tel)){ markError(q(8)); ok=false; }
+
+    if(!d.sns){ markError(q(9)); ok=false; }
+
+    if(!ok){
+      const first = form.querySelector(".q.has-error");
+      if(first) first.scrollIntoView({behavior:"smooth", block:"center"});
+    }
+    return ok;
+  }
+
+  // ---- 送信 : Google フォームへ POST (no-cors) ----
+  async function sendToGoogleForm(data){
+    if(GOOGLE_FORM_ID === "YOUR_GOOGLE_FORM_ID"){
+      console.warn("[DEMO] GOOGLE_FORM_ID が未設定のため送信をスキップしました。", data);
+      return;
+    }
+    const url = "https://docs.google.com/forms/d/e/" + GOOGLE_FORM_ID + "/formResponse";
+    const body = new URLSearchParams();
+    body.append(ENTRY.category, data.category);
+    body.append(ENTRY.name,     data.name);
+    body.append(ENTRY.age,      data.age);
+    body.append(ENTRY.gender,   data.gender);
+    body.append(ENTRY.location, data.location);
+    body.append(ENTRY.job,      data.job);
+    body.append(ENTRY.email,    data.email);
+    body.append(ENTRY.tel,      data.tel);
+    body.append(ENTRY.sns,      data.sns);
+    body.append(ENTRY.note,     data.note);
+    await fetch(url, {
+      method : "POST",
+      mode   : "no-cors",
+      headers: { "Content-Type":"application/x-www-form-urlencoded" },
+      body   : body.toString()
+    });
+  }
+
+  form.addEventListener("submit", async (e)=>{
+    e.preventDefault();
+    if(!validate()) return;
+    submitBtn.disabled = true;
+    submitBtn.textContent = "送信中...";
+    try{
+      await sendToGoogleForm(getFormData());
+      form.style.display = "none";
+      thanks.style.display = "block";
+      window.scrollTo({top:0, behavior:"smooth"});
+    }catch(err){
+      console.error(err);
+      alert("送信に失敗しました。時間をおいて再度お試しください。");
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '送信する<span class="arrow">→</span>';
+    }
+  });
+
+  // 入力中のエラークリア
+  form.querySelectorAll("input, textarea").forEach(el=>{
+    el.addEventListener("input",  ()=> clearError(el.closest(".q")));
+    el.addEventListener("change", ()=> clearError(el.closest(".q")));
+  });
+})();
+</script>
 </body>
 </html>
